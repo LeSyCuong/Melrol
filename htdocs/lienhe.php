@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
     } else {
-        $stmt = $pdo->prepare("INSERT INTO contact (name, email, subject, category, messenger, error) VALUES (?, ?, ?, ?, ?, NULL)");
+        $stmt = $pdo->prepare("INSERT INTO contact (name, email, subject, category, messenger) VALUES (?, ?, ?, ?, ?, NULL)");
         $success = $stmt->execute([$name, $email, $subject, $category, $messenger]);
 
         if ($success) {
