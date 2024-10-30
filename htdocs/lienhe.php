@@ -39,9 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
     } else {
-        $stmt = $pdo->prepare("INSERT INTO contact (name, email, subject, category, messenger) VALUES (?, ?, ?, ?, ?, NULL)");
+        $stmt = $pdo->prepare("INSERT INTO contact (name, email, subject, category, messenger) VALUES (?, ?, ?, ?, ?)");
         $success = $stmt->execute([$name, $email, $subject, $category, $messenger]);
-
         if ($success) {
             $tb['suc']['finish'] = 'Gửi thông tin thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất có thể.';
         } else {
